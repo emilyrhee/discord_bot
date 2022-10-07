@@ -3,6 +3,9 @@ import random
 from discord.ext import commands
 from dotenv import load_dotenv
 import os
+import nltk
+from chatterbot import ChatBot
+from chatterbot.trainers import ListTrainer
 
 load_dotenv()
 
@@ -23,6 +26,8 @@ async def on_message(message):
     if "wyd" in message.content:
         wyd_responses = ["On the toilet.", "Wrapping up some work.", "Watching some YouTube."]
         await message.channel.send(random.choice(wyd_responses) + " Wbu?")
+
+
 
 bot.run(os.getenv('TOKEN'))
 
